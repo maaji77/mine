@@ -47,9 +47,14 @@ def get_response(question):
 st.title("Sir Lester Bird Medical Center Chatbot")
 st.write("Ask any questions related to surgeries and procedures based on available data.")
 
-# Chat input using Streamlit's chat_input
-user_question = st.chat_input("Please enter your question")
-
-if user_question:
-    answer = get_response(user_question)
-    st.write("Answer:", answer)
+user_input = st.chat_input("Type your question about the health statistics...")
+# Handle chat input and add to the chat log
+if user_input:
+    add_message("user", user_input)
+    # Stream the response from the model
+    response = get_response(user_input)
+    add_message("ai", response)
+# Display chat messages
+for chat in st.session_state["messages"]:
+    with st.chat_message(chat["sender"]):
+        st.write(chat["message"])
