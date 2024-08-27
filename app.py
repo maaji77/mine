@@ -47,14 +47,29 @@ def get_response(question):
 st.title("Sir Lester Bird Medical Center Chatbot")
 st.write("Ask any questions related to surgeries and procedures based on available data.")
 
+# Initialize chat history in session state
+if "messages" not in st.session_state:
+    st.session_state["messages"] = []  # Ensure 'messages' is initialized
+
+# Function to add messages to the chat history
+def add_message(sender, message):
+    st.session_state["messages"].append({"sender": sender, "message": message})
+
+# Handle user input
 user_input = st.chat_input("Type your question about the health statistics...")
-# Handle chat input and add to the chat log
+
 if user_input:
+    # Add the user's message to the chat
     add_message("user", user_input)
-    # Stream the response from the model
+    
+    # Get the AI response
     response = get_response(user_input)
+    
+    # Add the AI response to the chat
     add_message("ai", response)
-# Display chat messages
-for chat in st.session_state["messages"]:
-    with st.chat_message(chat["sender"]):
-        st.write(chat["message"])
+
+# Display the chat history
+if "messages" in st.session_state:  # Double-check that 'messages' exists
+    for chat in st.session_state["messages"]:
+        with st.chat_message(chat["sender"]):
+            st.write(chat["message"])
