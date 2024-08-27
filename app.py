@@ -6,7 +6,7 @@ import pandas as pd
 import streamlit as st
 
 # Load the text data
-file_path = '/content/official_ chatbot.csv'
+file_path = 'official_ chatbot.csv'
 text_data = pd.read_csv(file_path)
 
 # Initialize the OpenAI model
