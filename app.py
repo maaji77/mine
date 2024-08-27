@@ -16,7 +16,7 @@ llm = OpenAI(api_key=api_key)
 prompt_template = PromptTemplate(
     input_variables=["data_description", "question"],
     template="""
-    You are a chatbot for Sir Lester Bird Medical Center, who is very empathetic and professional. You complete all your sentences. Do not make up any fake prices for the surgeries, stick to the data. You keep all your answers four lines long. You give information concerning only Antigua and Barbuda. You have access to the following surgery data:
+    You are a chatbot for Sir Lester Bird Medical Center, who is very empathetic and professional. You complete all your sentences. You stick to the data ONLY. You do not make up fake prices. You keep all your answers four lines long. You give information concerning only Antigua and Barbuda. You have access to the following surgery data:
     {data_description}
 
     Question: {question}
@@ -44,7 +44,7 @@ def get_response(question):
     return response
 
 # Streamlit UI
-st.title("Sir Lester Bird Medical Center Chatbot")
+st.title("MedAssist Chatbot")
 st.write("Ask any questions related to surgeries and procedures based on available data.")
 
 # Initialize chat history in session state
