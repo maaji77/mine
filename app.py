@@ -45,7 +45,7 @@ def get_response(question):
 
 # Streamlit UI
 st.title("MedAssist Chatbot")
-st.write("DISCLAIMER: This chatbot is not created by certified doctors! The information provided in this chatbot is only applicable for Sir Lester Bird Medical Center in Antigua.Ask any questions related to surgeries and procedures based on available data.")
+st.write("DISCLAIMER: This chatbot is not created by certified doctors! The information provided in this chatbot is only applicable for Sir Lester Bird Medical Center in Antigua. Ask any questions related to surgeries and procedures based on available data.")
 
 # Initialize chat history in session state
 if "messages" not in st.session_state:
@@ -56,7 +56,7 @@ def add_message(sender, message):
     st.session_state["messages"].append({"sender": sender, "message": message})
 
 # Handle user input
-user_input = st.chat_input("Type your question about the health statistics...")
+user_input = st.chat_input("Type your question on surgeries (or type bye to quit):")
 
 if user_input:
     # Add the user's message to the chat
