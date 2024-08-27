@@ -45,7 +45,7 @@ def get_response(question):
 
 # Streamlit UI
 st.title("MedAssist Chatbot")
-st.write("Ask any questions related to surgeries and procedures based on available data.")
+st.write("DISCLAIMER: This chatbot is not created by certified doctors! The information provided in this chatbot is only applicable for Sir Lester Bird Medical Center in Antigua.Ask any questions related to surgeries and procedures based on available data.")
 
 # Initialize chat history in session state
 if "messages" not in st.session_state:
