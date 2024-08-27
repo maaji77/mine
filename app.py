@@ -10,7 +10,11 @@ file_path = 'official_ chatbot.csv'
 text_data = pd.read_csv(file_path)
 
 # Initialize the OpenAI model
-llm = OpenAI(api_key='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')
+# Set your OpenAI API key
+api_key = st.secrets["OPENAI_API_KEY"]
+
+# Initialize the LLM
+llm = OpenAI(api_key=api_key)
 
 # Define the prompt template for health statistics data
 prompt_template = PromptTemplate(
