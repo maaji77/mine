@@ -54,6 +54,17 @@ if "messages" not in st.session_state:
 # Function to add messages to the chat history
 def add_message(sender, message):
     st.session_state["messages"].append({"sender": sender, "message": message})
+    
+# Function to display messages with an icon
+def display_message(message, icon):
+    st.markdown(f"<div style='display: flex; align-items: center;'>"
+                 f"<img src='{icon}' alt='icon' style='width: 20px; height: 20px; margin-right: 10px;'>"
+                 f"<span>{message}</span></div>",
+                 unsafe_allow_html=True)
+
+# Icon URL (Make sure to use a valid URL or local path to an image)
+chatbot_icon = "https://files.fm/u/s8nxcv8xnu"  # Replace with your icon URL
+user_icon = "https://files.fm/u/stpa87b78f"        # Replace with your icon URL
 
 # Handle user input
 user_input = st.chat_input("Type your question on surgeries (or type bye to quit):")
