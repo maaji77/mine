@@ -87,4 +87,4 @@ st.write(f"You selected: {option}")
 
 # You can also add other widgets like sliders, checkboxes, etc.
 if st.sidebar.checkbox("Show additional information"):
-    st.sidebar.write(" ")
+    st.sidebar.write("This is a chatbot created to help you in getting information on surgeries done in the Sir Lester Bird Medical Center. It gives you a detailed description on the surgery types, how to prepare for a certain surgery, and provides accurate prices of different aspects of the surgery. It also gives you the most common surgery types for each age group. This chatbot is the most efficient way of data access from SLBMC as it is eay to use, very quick and informative, saving you a visit to the doctor. I hope this helps give a general idea of MedAssist. ")
