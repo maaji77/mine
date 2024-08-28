@@ -75,10 +75,6 @@ if "messages" in st.session_state:  # Double-check that 'messages' exists
         with st.chat_message(chat["sender"]):
             st.write(chat["message"])
 
-# Load and display your logo in the sidebar
-logo_path = "assets/logo.png"  # Replace with the path to your logo
-st.sidebar.image(logo_path, caption="My Logo", use_column_width=True)
-
 # Add a sidebar header
 st.sidebar.header("Sidebar Menu")
 
