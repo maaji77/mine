@@ -63,8 +63,8 @@ def display_message(message, icon):
                  unsafe_allow_html=True)
 
 # Icon URL (Make sure to use a valid URL or local path to an image)
-chatbot_icon = "https://files.fm/u/s8nxcv8xnu"  # Replace with your icon URL
-user_icon = "https://files.fm/u/stpa87b78f"        # Replace with your icon URL
+chatbot_icon = "https://www.dropbox.com/scl/fi/hys25ooo4tfh8zftt0r1q/single_logo-removebg-preview.png?rlkey=3vkem1agmpmu8kqypezp8hghq&st=rohhzsos&dl=0"  # Replace with your icon URL
+user_icon = "https://www.dropbox.com/scl/fi/pti8v2bx8ewcr046lw4mf/user_logo-removebg-preview.png?rlkey=7q9otj7vogdq4sbxbvi8swbny&st=zhsemrnu&dl=0"        # Replace with your icon URL
 
 # Handle user input
 user_input = st.chat_input("Type your question on surgeries (or type bye to quit):")
