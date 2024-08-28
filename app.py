@@ -55,29 +55,19 @@ if "messages" not in st.session_state:
 def add_message(sender, message):
     st.session_state["messages"].append({"sender": sender, "message": message})
     
-# Function to display messages with an icon
-def display_message(message, icon):
-    st.markdown(f"<div style='display: flex; align-items: center;'>"
-                 f"<img src='{icon}' alt='icon' style='width: 20px; height: 20px; margin-right: 10px;'>"
-                 f"<span>{message}</span></div>",
-                 unsafe_allow_html=True)
-
-# Icon URL (Make sure to use a valid URL or local path to an image)
-chatbot_icon = "https://www.dropbox.com/scl/fi/hys25ooo4tfh8zftt0r1q/single_logo-removebg-preview.png?rlkey=3vkem1agmpmu8kqypezp8hghq&st=rohhzsos&dl=0"  # Replace with your icon URL
-user_icon = "https://www.dropbox.com/scl/fi/pti8v2bx8ewcr046lw4mf/user_logo-removebg-preview.png?rlkey=7q9otj7vogdq4sbxbvi8swbny&st=zhsemrnu&dl=0"        # Replace with your icon URL
 
 # Handle user input
 user_input = st.chat_input("Type your question on surgeries (or type bye to quit):")
 
 if user_input:
     # Add the user's message to the chat
-    add_message("user", user_input, user_icon)
+    add_message("user", user_input)
     
     # Get the AI response
     response = get_response(user_input)
     
     # Add the AI response to the chat
-    add_message("ai", response, chatbot_icon)
+    add_message("ai", response)
 
 # Display the chat history
 if "messages" in st.session_state:  # Double-check that 'messages' exists
@@ -97,4 +87,4 @@ st.write(f"You selected: {option}")
 
 # You can also add other widgets like sliders, checkboxes, etc.
 if st.sidebar.checkbox("Show additional information"):
-    st.sidebar.write("Here is some additional information!")
+    st.sidebar.write(" ")
