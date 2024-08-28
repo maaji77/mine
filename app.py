@@ -75,14 +75,10 @@ if "messages" in st.session_state:  # Double-check that 'messages' exists
         with st.chat_message(chat["sender"]):
             st.write(chat["message"])
 
-# File uploader for logo
-uploaded_file = st.sidebar.file_uploader("Upload your logo", type=['png'])
 
-if uploaded_file is not None:
-    st.sidebar.image(uploaded_file, use_column_width=True)
-else:
-    # Default logo in case no file is uploaded
-    st.sidebar.image("logo__2_-removebg-preview (1).png", use_column_width=True)  # Default logo path
+# Add a logo to the sidebar
+logo_path = "logo__2_-removebg-preview (1).png"  # Ensure the logo path is correct
+st.sidebar.image(logo_path, use_column_width=True)
     
 # Add a sidebar header
 st.sidebar.header("Sidebar Menu")
