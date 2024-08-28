@@ -73,3 +73,17 @@ if "messages" in st.session_state:  # Double-check that 'messages' exists
     for chat in st.session_state["messages"]:
         with st.chat_message(chat["sender"]):
             st.write(chat["message"])
+
+
+# Add a sidebar header
+st.sidebar.header("Sidebar Menu")
+
+# Add some widgets to the sidebar
+option = st.sidebar.selectbox("Select an option:", ["Option 1", "Option 2", "Option 3"])
+
+# Display the selected option in the main area
+st.write(f"You selected: {option}")
+
+# You can also add other widgets like sliders, checkboxes, etc.
+if st.sidebar.checkbox("Show additional information"):
+    st.sidebar.write("Here is some additional information!")
