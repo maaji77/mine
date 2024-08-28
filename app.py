@@ -71,13 +71,13 @@ user_input = st.chat_input("Type your question on surgeries (or type bye to quit
 
 if user_input:
     # Add the user's message to the chat
-    add_message("user", user_input)
+    add_message("user", user_input, user_icon)
     
     # Get the AI response
     response = get_response(user_input)
     
     # Add the AI response to the chat
-    add_message("ai", response)
+    add_message("ai", response, chatbot_icon)
 
 # Display the chat history
 if "messages" in st.session_state:  # Double-check that 'messages' exists
