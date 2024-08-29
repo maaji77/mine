@@ -89,7 +89,7 @@ def image_to_base64(image_path):
 
 # Ensure image paths are correctly set
 sage_image_base64 = image_to_base64("logo.png")
-user_image_base64 = image_to_base64("")
+user_image_base64 = image_to_base64("user_logo.png")
 # Display conversation history with images
 if st.session_state.history:
     st.write("### Conversation History")
