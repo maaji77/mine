@@ -88,7 +88,7 @@ def image_to_base64(image_path):
         return None
 
 # Ensure image paths are correctly set
-sage_image_base64 = image_to_base64("logo.png")
+logo_image_base64 = image_to_base64("logo.png")
 user_image_base64 = image_to_base64("user_logo.png")
 # Display conversation history with images
 if st.session_state.history:
@@ -97,13 +97,13 @@ if st.session_state.history:
         if speaker == "response ":
             if sage_image_base64:
                 st.write(
-                    f"<img src='data:image/png;base64,{sage_image_base64}' style='width:50px;height:50px;'> *SAGE*: {message}",
+                    f"<img src='data:image/png;base64,{logo_image_base64}' style='width:50px;height:50px;'> *response*: {message}",
                     unsafe_allow_html=True
                 )
         else:
             if user_image_base64:
                 st.write(
-                    f"<img src='data:image/jpeg;base64,{user_image_base64}' style='width:50px;height:50px;'> *YOU*: {message}",
+                    f"<img src='data:image/jpeg;base64,{user_image_base64}' style='width:50px;height:50px;'> *user_input*: {message}",
                     unsafe_allow_html=True
                 )
 # Add a sidebar header
