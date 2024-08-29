@@ -4,7 +4,7 @@ from langchain.chains import LLMChain
 from langchain.llms import OpenAI
 from langchain.prompts import PromptTemplate
 
-st.image('logo.png', width=200)
+st.sidebar.image('logo.png', width=200)
 
 # Load the text data
 file_path = 'official_ chatbot.csv'
