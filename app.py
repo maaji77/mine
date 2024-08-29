@@ -95,7 +95,7 @@ if st.session_state.history:
     st.write("### Conversation History")
     for speaker, message in st.session_state.history:
         if speaker == "response ":
-            if sage_image_base64:
+            if logo_image_base64:
                 st.write(
                     f"<img src='data:image/png;base64,{logo_image_base64}' style='width:50px;height:50px;'> *response*: {message}",
                     unsafe_allow_html=True
