@@ -73,6 +73,12 @@ if user_input:
     # Add the AI response to the chat
     add_message("ai", response)
 
+# Display the chat history
+if "messages" in st.session_state:  # Double-check that 'messages' exists
+    for chat in st.session_state["messages"]:
+        with st.chat_message(chat["sender"]):
+            st.write(chat["message"])
+
 # Add a sidebar header
 st.sidebar.header("Sidebar Menu")
 
