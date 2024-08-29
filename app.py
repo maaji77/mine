@@ -4,7 +4,23 @@ from langchain.chains import LLMChain
 from langchain.llms import OpenAI
 from langchain.prompts import PromptTemplate
 
-st.logo('logo.png', icon_image='logo.png')
+# st.logo('logo.png', icon_image='logo.png')
+
+logo = "logo.png"
+
+# Custom CSS to define the size
+st.sidebar.markdown(
+    f"""
+    <style>
+    .custom-logo {{
+        width: 150px;  /* Set the width you desire */
+        height: auto;  /* Maintain aspect ratio */
+    }}
+    </style>
+    <img class="custom-logo" src="{logo}" alt="Logo">
+    """,
+    unsafe_allow_html=True
+)
 
 # Load the text data
 file_path = 'official_ chatbot.csv'
