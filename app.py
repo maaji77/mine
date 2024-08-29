@@ -3,6 +3,8 @@ import streamlit as st
 from langchain.chains import LLMChain
 from langchain.llms import OpenAI
 from langchain.prompts import PromptTemplate
+import base64
+
 
 st.sidebar.image('logo.png', width=300)
 
@@ -76,7 +78,34 @@ if "messages" in st.session_state:  # Double-check that 'messages' exists
     for chat in st.session_state["messages"]:
         with st.chat_message(chat["sender"]):
             st.write(chat["message"])
+# Convert local images to Base64
+def image_to_base64(image_path):
+    if os.path.exists(image_path):
+        with open(image_path, "rb") as img_file:
+            return base64.b64encode(img_file.read()).decode('utf-8')
+    else:
+        st.error(f"Image file not found: {image_path}")
+        return None
 
+# Ensure image paths are correctly set
+sage_image_base64 = image_to_base64("logo.png")
+user_image_base64 = image_to_base64("")
+# Display conversation history with images
+if st.session_state.history:
+    st.write("### Conversation History")
+    for speaker, message in st.session_state.history:
+        if speaker == "SAGE ":
+            if sage_image_base64:
+                st.write(
+                    f"<img src='data:image/png;base64,{sage_image_base64}' style='width:50px;height:50px;'> *SAGE*: {message}",
+                    unsafe_allow_html=True
+                )
+        else:
+            if user_image_base64:
+                st.write(
+                    f"<img src='data:image/jpeg;base64,{user_image_base64}' style='width:50px;height:50px;'> *YOU*: {message}",
+                    unsafe_allow_html=True
+                )
 # Add a sidebar header
 st.sidebar.header("Sidebar Menu")
 
