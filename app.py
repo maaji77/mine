@@ -6,7 +6,7 @@ from langchain.prompts import PromptTemplate
 
 
 st.sidebar.image('logo.png', width=300)
-
+st.image('logo2.png', width=600)
 
 # Load the text data
 file_path = 'official_ chatbot.csv'
