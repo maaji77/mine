@@ -6,7 +6,7 @@ from langchain.prompts import PromptTemplate
 
 # st.logo('logo.png', icon_image='logo.png')
 
-logo = "logo.png"
+logo = "/logo.png"
 
 # Custom CSS to define the size
 st.sidebar.markdown(
