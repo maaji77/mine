@@ -94,7 +94,7 @@ user_image_base64 = image_to_base64("")
 if st.session_state.history:
     st.write("### Conversation History")
     for speaker, message in st.session_state.history:
-        if speaker == "SAGE ":
+        if speaker == "response ":
             if sage_image_base64:
                 st.write(
                     f"<img src='data:image/png;base64,{sage_image_base64}' style='width:50px;height:50px;'> *SAGE*: {message}",
