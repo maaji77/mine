@@ -58,11 +58,9 @@ if "messages" not in st.session_state:
 # Function to add messages to the chat history
 def add_message(sender, message):
     st.session_state["messages"].append({"sender": sender, "message": message})
-    
 
 # Handle user input
-user_input = st.chat_input("Type your question on surgeries (or type 'exit' to quit):")
-
+user_input = st.chat_input("Type your question about the health statistics...")
 
 if user_input:
     # Add the user's message to the chat
@@ -79,6 +77,8 @@ if "messages" in st.session_state:  # Double-check that 'messages' exists
     for chat in st.session_state["messages"]:
         with st.chat_message(chat["sender"]):
             st.write(chat["message"])
+
+
 
     
 # Add a sidebar header
