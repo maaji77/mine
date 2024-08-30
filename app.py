@@ -63,8 +63,6 @@ def add_message(sender, message):
 # Handle user input
 user_input = st.chat_input("Type your question on surgeries (or type 'exit' to quit):")
 
-while (user_input != "exit"):
-    keyword_found = False
 
 if user_input:
     # Add the user's message to the chat
@@ -82,7 +80,9 @@ if "messages" in st.session_state:  # Double-check that 'messages' exists
         with st.chat_message(chat["sender"]):
             st.write(chat["message"])
 
-
+while (user_input != "exit"):
+    keyword_found = False
+    
 # Add a sidebar header
 st.sidebar.header("Sidebar Menu")
 
