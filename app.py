@@ -63,9 +63,7 @@ translator = Translator()
 LANGUAGES = {
     'English': 'en',
     'Spanish': 'es',
-    'French': 'fr',
-    'German': 'de',
-    'Italian': 'it',
+    'French': 'fr'
 }
 
 # Language selection
