@@ -85,7 +85,7 @@ import streamlit as st
 trigger_word = "exit"
 
 # Button to send the message
-if st.button(user_input=='exit):
+if st.button(user_input== 'exit'):
     if user_input.strip().lower() == trigger_word:
          st.write("Input sequence has been stopped.")
     else:
