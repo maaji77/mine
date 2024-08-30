@@ -80,8 +80,6 @@ if "messages" in st.session_state:  # Double-check that 'messages' exists
         with st.chat_message(chat["sender"]):
             st.write(chat["message"])
 
-while (user_input != "exit"):
-    keyword_found = False
     
 # Add a sidebar header
 st.sidebar.header("Sidebar Menu")
