@@ -3,10 +3,6 @@ import streamlit as st
 from langchain.chains import LLMChain
 from langchain.llms import OpenAI
 from langchain.prompts import PromptTemplate
-from gtts import gTTS
-from googletrans import Translator
-import os
-import tempfile
 
 
 st.sidebar.image('logo.png', width=300)
