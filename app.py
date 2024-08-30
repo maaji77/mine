@@ -63,6 +63,9 @@ def add_message(sender, message):
 # Handle user input
 user_input = st.chat_input("Type your question on surgeries (or type 'exit' to quit):")
 
+while (user != "exit"):
+    keyword_found = False
+
 if user_input:
     # Add the user's message to the chat
     add_message("user", user_input)
@@ -78,7 +81,6 @@ if "messages" in st.session_state:  # Double-check that 'messages' exists
     for chat in st.session_state["messages"]:
         with st.chat_message(chat["sender"]):
             st.write(chat["message"])
-import streamlit as st
 
 
 # Add a sidebar header
