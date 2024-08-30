@@ -60,7 +60,7 @@ def add_message(sender, message):
     st.session_state["messages"].append({"sender": sender, "message": message})
 
 # Handle user input
-user_input = st.chat_input("Type your question about the health statistics...")
+user_input = st.chat_input("Type your question here")
 
 if user_input:
     # Add the user's message to the chat
