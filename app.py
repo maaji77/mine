@@ -78,7 +78,19 @@ if "messages" in st.session_state:  # Double-check that 'messages' exists
     for chat in st.session_state["messages"]:
         with st.chat_message(chat["sender"]):
             st.write(chat["message"])
+import streamlit as st
 
+
+# Define the trigger word
+trigger_word = "exit"
+
+# Button to send the message
+if st.button(user_input=='exit):
+    if user_input.strip().lower() == trigger_word:
+         st.write("Input sequence has been stopped.")
+    else:
+        # For example purposes, we'll just echo the message back
+        st.write(f"You said: {user_input}")
 # Add a sidebar header
 st.sidebar.header("Sidebar Menu")
 
