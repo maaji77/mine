@@ -63,7 +63,7 @@ def add_message(sender, message):
 # Handle user input
 user_input = st.chat_input("Type your question on surgeries (or type 'exit' to quit):")
 
-while (user != "exit"):
+while (user_input != "exit"):
     keyword_found = False
 
 if user_input:
