@@ -61,7 +61,7 @@ def add_message(sender, message):
     
 
 # Handle user input
-user_input = st.chat_input("Type your question on surgeries (or type bye to quit):")
+user_input = st.chat_input("Type your question on surgeries (or type 'exit' to quit):")
 
 if user_input:
     # Add the user's message to the chat
