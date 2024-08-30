@@ -3,6 +3,10 @@ import streamlit as st
 from langchain.chains import LLMChain
 from langchain.llms import OpenAI
 from langchain.prompts import PromptTemplate
+from gtts import gTTS
+from googletrans import Translator
+import os
+import tempfile
 
 
 st.sidebar.image('logo.png', width=300)
@@ -50,6 +54,50 @@ def get_response(question):
 # Streamlit UI
 st.title("MedAssist Chatbot")
 st.write("DISCLAIMER: This chatbot is not created by certified doctors! The information provided in this chatbot is only applicable for Sir Lester Bird Medical Center in Antigua. Ask any questions related to surgeries and procedures based on available data.")
+
+
+# Initialize the translator
+translator = Translator()
+
+# Supported languages
+LANGUAGES = {
+    'English': 'en',
+    'Spanish': 'es',
+    'French': 'fr',
+    'German': 'de',
+    'Italian': 'it',
+}
+
+# Language selection
+language = st.selectbox("Select Language:", list(LANGUAGES.keys()))
+lang_code = LANGUAGES[language]
+
+# Chatbot interaction
+user_input = st.text_area("Enter your message:")
+
+# Button to generate response
+if st.button("Send"):
+    if user_input:
+        # Translate user input to English (assuming bot's default language is English)
+        translated_input = translator.translate(user_input, dest='en').text
+
+        # Here you would normally generate a response from the chatbot
+        # For this example, we simulate a response
+        bot_response = f"You said '{translated_input}', how can I help you?"
+
+        # Translate the response back to the selected language
+        translated_response = translator.translate(bot_response, dest=lang_code).text
+
+        # Display the response
+        st.write(translated_response)
+
+        # Convert the response to speech
+        with tempfile.NamedTemporaryFile(delete=True) as tmp:
+            tts = gTTS(text=translated_response, lang=lang_code)
+            tts.save(tmp.name + '.mp3')
+            st.audio(tmp.name + '.mp3', format="audio/mp3")
+    else:
+        st.error("Please enter a message.")
 
 # Initialize chat history in session state
 if "messages" not in st.session_state:
